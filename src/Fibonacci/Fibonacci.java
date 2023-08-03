@@ -7,27 +7,25 @@ public class Fibonacci {
     /*
     * Pseudo Code:
     * number = x
-    * Set Variables a=0, b=1
-    * for i value 2 to n
-    * c = a+b
-    * print c
-    * a = b
-    * b = c
+    * for i to number
+    * if i is equal 0
+    *   print 0
+    * end if
+    * if i is equal 1 or 2
+    *   print 1
+    * end if
+    *   repeat process conditions with i-2 and n-1 and add it
     * end for
     * */
-    public static void fibonacciCalculator(int n) {
+    public static int fibonacciCalculator(int n) {
 
-        int a = 0;
-        int b = 1;
-        int c;
-        int i;
-        for (i=2; i < n; i++){
-            c = a+b;
-            System.out.println(c);
-            a = b;
-            b = c;
+        if (n == 0){
+            return 0;
         }
-
+        if (n == 1 || n == 2){
+            return 1;
+        }
+        return fibonacciCalculator(n-2) + fibonacciCalculator(n-1);
     }
 
     public static void main (String arg[]) {
@@ -35,6 +33,8 @@ public class Fibonacci {
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter a number to calculate on Fibonacci methode: ");
         number = scan.nextInt();
-        fibonacciCalculator(number);
+        for (int i=0; i<number; i++){
+            System.out.println(fibonacciCalculator(i));
+        }
     }
 }
