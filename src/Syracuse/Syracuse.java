@@ -5,31 +5,38 @@ import java.util.Scanner;
 public class Syracuse {
     /*
     * number = x
-    * while n is not equal 1
-    *
-    *   if n is peered
-    *       n = n/2
+    * if number is equal 1
+    *   print 1
+    * else
+    *   print number
+    *   if number is peered
+    *       number = number/2
     *   else
-    *       n = 3*n + 1
+    *       number = 3*number + 1
     *   end if
-    *   print n
+    *   reverse conditions with number
+    * end if
     * */
-    public static void syracuseCalculator(int n){
+    public static int syracuseCalculator(int n){
 
-        while (n > 1){
+
+        if (n == 1){
+            return 1;
+        } else {
+            System.out.println(n);
             if (n%2 == 0){
                 n = n/2;
             } else {
                 n = 3*n + 1;
             }
-            System.out.println(n);
-        };
+            return syracuseCalculator(n);
+        }
     }
     public static void main (String arg[]) {
         int number;
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter a number to calculate on Fibonacci methode: ");
         number = scan.nextInt();
-        syracuseCalculator(number);
+        System.out.println(syracuseCalculator(number));
     }
 }
